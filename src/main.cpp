@@ -27,6 +27,20 @@ static std::optional<std::vector<std::byte>> ReadFile(const std::string &path)
     return std::move(contents);
 }
 
+void get_inputs(int &start_x, int &start_y, int &end_x, int &end_y){
+    std::cout << "Enter Start x: ";
+    std::cin >> start_x;
+
+    std::cout << "Enter Start y: ";
+    std::cin >> start_y;
+
+    std::cout << "Enter End x: ";
+    std::cin >> end_x;
+
+    std::cout << "Enter End y: ";
+    std::cin >> end_y;
+}
+
 int main(int argc, const char **argv)
 {    
     std::string osm_data_file = "";
@@ -54,18 +68,8 @@ int main(int argc, const char **argv)
 
     int start_x, start_y;
     int end_x, end_y;
-    std::cout << "Enter Start x: ";
-    std::cin >> start_x;
-
-    std::cout << "Enter Start y: ";
-    std::cin >> start_y;
-
-    std::cout << "Enter End x: ";
-    std::cin >> end_x;
-
-    std::cout << "Enter End y: ";
-    std::cin >> end_y;
-
+    
+    get_inputs(start_x, start_y, end_x, end_y);
 
     // Build Model.
     RouteModel model{osm_data};
